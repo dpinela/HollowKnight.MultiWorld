@@ -253,7 +253,7 @@ namespace MultiWorldMod.Items
                 GeoCost geoCost = (GeoCost)multiCost.FirstOrDefault(cost => cost is GeoCost);
                 int newGeoCost = GetRandomShopCost(item);
                 Cost otherCosts = geoCost == null ? multiCost : multiCost.Where(
-                    cost => cost is not GeoCost).Aggregate((cost1, cost2) => cost1 + cost2);
+                    cost => cost is not GeoCost).Aggregate(Cost.NewGeoCost(0), (cost1, cost2) => cost1 + cost2);
 
                 costTag.Cost = otherCosts + Cost.NewGeoCost(newGeoCost);
             }

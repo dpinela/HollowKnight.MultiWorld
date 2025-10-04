@@ -34,7 +34,7 @@ namespace MultiWorldMod
 
         public override string GetVersion()
 		{
-			string ver = "1.2.3";
+			string ver = "1.2.4";
 #if (DEBUG)
 			ver += "-Debug";
 #endif

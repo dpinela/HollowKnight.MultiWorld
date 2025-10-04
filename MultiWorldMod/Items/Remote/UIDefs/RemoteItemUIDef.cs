@@ -12,7 +12,14 @@ namespace MultiWorldMod.Items.Remote.UIDefs
             if (item.UIDef is MsgUIDef msgUIDef)
                 return new RemoteItemUIDef(msgUIDef, playerId);
 
-            LogHelper.LogError($"RemoteItemUIDef.Create(item.UIDef.GetType().FullName = {item.UIDef.GetType().FullName}), is not MsgUIDef. item.name = {item.name}");
+            if (item.UIDef == null)
+            {
+                LogHelper.LogError($"uidef is null. item.name = {item.name}");
+            }
+            else
+            {
+                LogHelper.LogError($"RemoteItemUIDef.Create(item.UIDef.GetType().FullName = {item.UIDef.GetType().FullName}), is not MsgUIDef. item.name = {item.name}");
+            }
             return item.UIDef;
         }
 
